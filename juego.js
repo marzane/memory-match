@@ -1,5 +1,5 @@
-const CARTAS_POR_FILA = 7;          // numero de cartas que hay en cada fila de cartas
-const CARTAS_NUM_FILAS = 3;         // numero de filas
+const CARTAS_POR_FILA = 4;          // numero de cartas que hay en cada fila de cartas
+const CARTAS_NUM_FILAS = 2;         // numero de filas
 const CARTAS_REPETIDAS = 2;         // numero de veces que se repite cada carta
 
 const CARTAS_TOTALES = CARTAS_NUM_FILAS * CARTAS_POR_FILA;
