@@ -35,11 +35,36 @@
 
 .carta{
     width: 4em;
+    height: 6em;
     position: relative;
     margin: auto;
+    background-repeat: repeat-x;
+    background-size: cover;  
+    background-position: 0px;
 }
 
 .carta:hover{
     bottom: 10px;
 }
 
+
+.mostrando{
+    animation: voltear 0.3s steps(5);
+    background-position: 64px;
+}
+
+.ocultando{
+    animation: ocultar 0.3s steps(4);
+}
+
+
+@keyframes voltear {
+    0% { background-position:0 }
+    100% { background-position: -320px }  
+  }
+  
+
+@keyframes ocultar {
+    0% { background-position:-256px }
+    100% { background-position: 0 } 
+ }
