@@ -87,7 +87,6 @@ function voltearCartaListener(e) {
 
     let cartasTablero = document.getElementById("contenedorCartas")?.getElementsByClassName(CLASE_CARTA_MOSTRADA);
 
-    console.log(cartasTablero)
 
     if (cartasTablero && index) {
         cartasTablero = [...cartasTablero];
@@ -128,7 +127,7 @@ function voltearCartaListener(e) {
             if(cartas.length > 0 && cartas.every(carta => carta.style.backgroundImage == "none") ){
                 inicializarJuego();
             }
-        }, 1100);
+        }, 1200);
 
     }
 
