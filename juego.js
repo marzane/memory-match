@@ -9,9 +9,19 @@ const CARTAS_EXT = ".png";
 
 const CLASE_CARTA_MOSTRADA = "mostrada";
 
+
 window.addEventListener("DOMContentLoaded", main);
 
+
 function main() {
+
+    inicializarJuego();
+
+}
+
+
+
+function inicializarJuego(){
 
     const contCartas = document.getElementById("contenedorCartas");
     if (contCartas) {
@@ -24,6 +34,11 @@ function main() {
         }
 
         numeros = desordenarArray(numeros);
+
+        // borrar las filas de cartas previas si hubiera
+        const filas = contCartas.querySelectorAll(".filaCarta");
+        filas.forEach(fila => fila.remove());
+
 
         // generar filas con cartas repetidas
         // **********************************
@@ -59,6 +74,7 @@ function main() {
 
 
 
+
 function voltearCartaListener(e) {
 
     let carta = e.target;
@@ -69,7 +85,9 @@ function voltearCartaListener(e) {
 
     carta.removeEventListener("click", voltearCartaListener);
 
-    let cartasTablero = document.querySelectorAll("#contenedorCartas ." + CLASE_CARTA_MOSTRADA);
+    let cartasTablero = document.getElementById("contenedorCartas")?.getElementsByClassName(CLASE_CARTA_MOSTRADA);
+
+    console.log(cartasTablero)
 
     if (cartasTablero && index) {
         cartasTablero = [...cartasTablero];
@@ -103,6 +121,14 @@ function voltearCartaListener(e) {
             }
 
         });
+
+        // si ya no hay cartas se inicializa el juego de nuevo
+        setTimeout(function(){
+            let cartas = [...document.querySelectorAll("#contenedorCartas .carta")];
+            if(cartas.length > 0 && cartas.every(carta => carta.style.backgroundImage == "none") ){
+                inicializarJuego();
+            }
+        }, 1100);
 
     }
 
